@@ -4,10 +4,11 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +44,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun Context.isPermissionGranted(permission: String): Boolean {
-        return checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED
+        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
     }
 }
